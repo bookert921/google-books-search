@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.book-card {
+  margin: 20px;
+  width: 300px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #8e4162;
+  box-shadow: 2px 2px 5px black;
+}
+
+.book-image {
+  max-width: 100px;
+}
+
+.book-title {
+  margin-bottom: 10px;
+  font-family: "Nato Sans TC", sans-serif;
+  font-weight: bold;
+}
+
+.book-author {
+  font-style: italic;
+  margin-bottom: 10px;
+}
