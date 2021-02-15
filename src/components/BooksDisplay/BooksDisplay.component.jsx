@@ -5,20 +5,29 @@ import './BookDisplay.styles.css';
 const BooksDisplay = (props) => {
     // searchInfo for text snippet
     // volumeInfo for book title, authors, publisher, avg raiting, language, description, imageLinks, pageCount, category, publishedDate, etc.
-
     return (
-        < div className="container" >
+        <div className="container">
             {
                 props.books.map(book => {
-                    const { title, authors, imageLinks: { thumbnail } } = book.volumeInfo;
+                    const {
+                        title,
+                        authors,
+                        description,
+                        publisher,
+                        imageLinks: { thumbnail },
+                        infoLink
+                    } = book.volumeInfo;
+
                     return (
-                        <div key={book.etag} className="book-card">
-                            <BookDisplayContent
-                                title={title}
-                                author={authors}
-                                image={thumbnail}
-                            />
-                        </div>
+                        <BookDisplayContent
+                            key={book.etag}
+                            title={title}
+                            author={authors}
+                            publisher={publisher}
+                            image={thumbnail}
+                            textSnippet={description}
+                            infoLink={infoLink}
+                        />
                     )
                 })
             }

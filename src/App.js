@@ -12,9 +12,18 @@ class App extends React.Component {
     }
   };
 
+  componentDidMount() {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`)
+      .then(response => response.json())
+      .then(data => this.setState({ books: data.items }));
+  }
+
+  componentWillUnmount() {
+
+  }
+
   handleChange = (search) => {
     this.setState({ q: search })
-    console.log(search);
   }
 
   handleSubmit = async (search) => {

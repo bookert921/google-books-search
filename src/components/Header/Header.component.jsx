@@ -12,8 +12,9 @@ const Header = () => {
                     alt="Book N Beyond Logo Home Button"
                 />
             </div>
-            <div className="title">
-                <h1>Explore Our Book Search through GoogleAPI</h1>
+            <div className="title-container">
+                <h1 className="title">Google Books API</h1>
+                <h3 className="subtitle">Search for your favorite Books through Google</h3>
             </div>
         </header>
     );

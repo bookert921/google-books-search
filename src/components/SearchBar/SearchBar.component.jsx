@@ -2,8 +2,6 @@ import React from 'react';
 import './SearchBar.styles.css';
 
 const SearchBar = (props) => {
-    console.log(props);
-
     const onSearchChange = (e) => {
         props.handleChange(e.target.value);
     }
@@ -21,7 +19,9 @@ const SearchBar = (props) => {
                 type="text"
                 value={props.q}
                 placeholder="Search For A Book..." />
-            <input className="button" type="submit" />
+            <button className="search-button" type="submit">
+                <i className="fa fa-search"></i>
+            </button>
         </form>
     );
 };

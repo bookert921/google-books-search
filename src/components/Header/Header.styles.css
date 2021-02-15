@@ -11,14 +11,41 @@
 }
 
 .brand-logo {
-  max-width: 100px;
+  max-width: 75px;
   box-shadow: 5px 1px 5px black;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
   font-family: "Nato Sans TC", sans-serif;
   color: #bf9aca;
   text-shadow: 5px 1px 5px black;
-  text-align: center;
-  margin: 10px;
+}
+
+.subtitle {
+  font-family: "Nato Sans TC", sans-serif;
+  color: white;
+  text-shadow: 5px 1px 5px black;
+  padding: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
 }
