@@ -1,3 +1,3 @@
 # Book Search
 
-Search for your favorite JavaScript books!
+Search for your favorite books!
