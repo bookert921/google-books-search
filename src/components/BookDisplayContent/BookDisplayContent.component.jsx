@@ -1,7 +1,13 @@
 import React from 'react';
 import './BookDisplayContent.styles.css';
 
-const BookDisplayContent = (props) => {
+const BookDisplayContent = ({
+    title,
+    image,
+    author,
+    publisher,
+    textSnippet,
+    infoLink }) => {
 
     return (
         <div className="card">
@@ -10,23 +16,23 @@ const BookDisplayContent = (props) => {
                     <div className="image-container">
                         <img
                             className="book-image"
-                            alt={props.title}
-                            src={props.image} />
+                            alt={title}
+                            src={image} />
                     </div>
-                    <h3 className="book-title">{props.title}</h3>
-                    <p className="book-author">{props.author}</p>
+                    <h3 className="book-title">{title}</h3>
+                    <p className="book-author">{author}</p>
                 </div>
             </div>
             <div className="face face2">
                 <div className="content">
-                    <a href={props.infoLink}>Navigate To Bookstore</a>
+                    <a href={infoLink}>Navigate To Bookstore</a>
                     <p className="book-publisher">
                         <span className="content-header">Publisher: </span>
-                        {props.publisher}
+                        {publisher}
                     </p>
                     <p className="text-snippet">
                         <span className="content-header">Description: </span>
-                        {props.textSnippet}
+                        {textSnippet}
                     </p>
                 </div>
             </div>

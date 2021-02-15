@@ -3,12 +3,14 @@ import React from 'react';
 import BooksDisplay from './components/BooksDisplay/BooksDisplay.component';
 import Header from './components/Header/Header.component';
 import SearchBar from './components/SearchBar/SearchBar.component';
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       books: [],
-      q: ''
+      q: '',
+      loading: false,
     }
   };
 
@@ -16,6 +18,7 @@ class App extends React.Component {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`)
       .then(response => response.json())
       .then(data => this.setState({ books: data.items }));
+    this.setState({ loading: true });
   }
 
   componentWillUnmount() {
@@ -28,13 +31,19 @@ class App extends React.Component {
 
   handleSubmit = async (search) => {
     if (!search) return;
-    await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
-      .then(response => response.json())
-      .then(data => this.setState({ books: data.items }));
-    this.setState({ q: '' });
+    try {
+      await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
+        .then(response => response.json())
+        .then(data => this.setState({ books: data.items }));
+      this.setState({ q: '' });
+      this.setState({ loading: true });
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   render() {
+    const { loading, books } = this.state;
     return (
       <div className="App">
         <Header />
@@ -42,9 +51,7 @@ class App extends React.Component {
           q={this.state.q}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit} />
-        <BooksDisplay
-          books={this.state.books}
-        />
+        <BooksDisplay loading={loading} books={books} />
       </div>
     );
   }
