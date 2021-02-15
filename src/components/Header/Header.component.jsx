@@ -6,11 +6,13 @@ const Header = () => {
     return (
         <header className="navbar">
             <div className="navbar-brand">
-                <img
-                    className="brand-logo"
-                    src={Logo}
-                    alt="Book N Beyond Logo Home Button"
-                />
+                <a href="/">
+                    <img
+                        className="brand-logo"
+                        src={Logo}
+                        alt="Book N Beyond Logo Home Button"
+                    />
+                </a>
             </div>
             <div className="title-container">
                 <h1 className="title">Google Books API</h1>
